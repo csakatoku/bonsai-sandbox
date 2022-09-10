@@ -30,3 +30,12 @@ services:
     #   - SYS_PTRACE
     # security_opt:
     #   - seccomp:unconfined
+
+  nginx:
+    image: nginx:1.23
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ..:/workspace:cached
